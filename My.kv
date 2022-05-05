@@ -1,0 +1,105 @@
+
+<ItemLabel@MDLabel>:
+    font_size: '20sp'
+    haling: 'left'
+    valing: 'center'
+
+<Container>:
+    canvas:
+        Rectangle:
+            source: '61.jpg'
+            size: self.size
+            pos: self.pos
+    rows: 3
+    text_input: text_input
+    item_label: item_label
+
+
+
+    AnchorLayout:
+        anchor_y: 'top'
+        size_hint: 1, .2
+        padding: 10
+
+        MDTextField:
+            id: text_input
+            font_size: '25sp'
+            multiline: False
+            input_type: 'number'
+            input_filter: 'float'
+            hint_text: 'Введите площадь м²...'
+
+    GridLayout:
+        cols: 2
+
+        BoxLayout:
+            padding: [5, 0, 0, 0]
+            orientation: 'vertical'
+
+            ItemLabel:
+                text: 'Шпаклёвка'
+
+            ItemLabel:
+                text: 'Обои'
+
+            ItemLabel:
+                text: 'Ламинат'
+
+            ItemLabel:
+                text: 'Линолиум'
+
+            ItemLabel:
+                text: 'Плинтус'
+
+            ItemLabel:
+                text: 'Плитка пол'
+
+
+        BoxLayout:
+            opacity: 3
+            orientation: 'vertical'
+            size_hint: .3, 1
+
+            CheckBox:
+                color: 0.42, 0.07, 0.64, 1
+                on_active: root.pr(self, self.active, "p1")
+
+            CheckBox:
+                color: 0.42, 0.07, 0.64, 1
+                on_active: root.pr(self, self.active, "p2")
+
+            CheckBox:
+                color: 0.42, 0.07, 0.64, 1
+                on_active: root.pr(self, self.active, "p3")
+
+            CheckBox:
+                color: 0.42, 0.07, 0.64, 1
+                on_active: root.pr(self, self.active, "p4")
+
+            CheckBox:
+                color: 0.42, 0.07, 0.64, 1
+                on_active: root.pr(self, self.active, "p5")
+
+            CheckBox:
+                color: 0.42, 0.07, 0.64, 1
+                on_active: root.pr(self, self.active, "p6")
+
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 1, .4
+        padding: [20, 10, 20, 10]
+        MDFillRoundFlatButton:
+            size_hint: 1, .9
+            text: 'Расчет'
+            font_size: 25
+            on_release:
+                root.calculate()
+
+        MDLabel:
+            id: item_label
+            font_size: 20
+            text: '0'
+
+#MDRaisedButton
